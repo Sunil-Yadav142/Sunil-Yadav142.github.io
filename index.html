@@ -1,640 +1,583 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Sunil Prasad Yadav's Portfolio</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunil Prasad Yadav | Sr. Software Engineer</title>
     
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Typed.js for Typing Animation -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: 'rgba(255, 255, 255, 0.03)',
+                            border: 'rgba(255, 255, 255, 0.08)',
+                            primary: '#3B82F6',
+                            secondary: '#A855F7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-<style>
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
 
-/*======================================
-//--//-->   ABOUT
-======================================*/
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.3);
+        }
 
-.about-mf .about-img {
-  margin-bottom: 2rem;
-}
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #3B82F6, #A855F7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.about-mf .about-img img {
-  margin-left: 10px;
-}
+        /* Dynamic Background Orbs */
+        .orb-1, .orb-2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.5;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        .orb-1 {
+            width: 400px; height: 400px;
+            background: #A855F7;
+            top: -100px; left: -100px;
+        }
+        .orb-2 {
+            width: 500px; height: 500px;
+            background: #3B82F6;
+            bottom: -200px; right: -100px;
+            animation-delay: -5s;
+        }
 
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
 
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
-}
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
-}
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0F19; }
+        ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A855F7; }
 
+        /* Timeline styling */
+        .timeline-dot {
+            position: absolute; left: -6px; top: 24px;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: #A855F7;
+            box-shadow: 0 0 10px #A855F7;
+        }
+    </style>
+</head>
+<body class="antialiased relative">
 
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
-}
+    <!-- Background Orbs -->
+    <div class="orb-1 fixed"></div>
+    <div class="orb-2 fixed"></div>
 
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
-}
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b-0 top-0 transition-all duration-300 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-wider text-white">SUNIL<span class="text-gradient">YADAV</span></a>
+            
+            <!-- Desktop Menu -->
+   <div class="hidden md:flex items-center gap-1.5
+            px-2 py-2
+            bg-[#0d111d]/90 backdrop-blur-xl
+            border border-blue-500/20
+            rounded-full
+            shadow-[0_0_25px_rgba(59,130,246,0.12)]">
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
+    <a href="#home"
+       class="px-5 py-2.5 rounded-full
+              text-sm font-medium text-gray-300
+              transition-all duration-300
+              hover:text-white
+              hover:bg-blue-600
+              hover:shadow-[0_0_20px_rgba(59,130,246,0.45)]">
+        Home
+    </a>
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
-}
+    <a href="#about"
+       class="px-5 py-2.5 rounded-full
+              text-sm font-medium text-gray-300
+              transition-all duration-300
+              hover:text-white
+              hover:bg-blue-600
+              hover:shadow-[0_0_20px_rgba(59,130,246,0.45)]">
+        About
+    </a>
 
+    <a href="#experience"
+       class="px-5 py-2.5 rounded-full
+              text-sm font-medium text-gray-300
+              transition-all duration-300
+              hover:text-white
+              hover:bg-blue-600
+              hover:shadow-[0_0_20px_rgba(59,130,246,0.45)]">
+        Experience
+    </a>
 
-/* project image zoom effect */
+    <a href="#projects"
+       class="px-5 py-2.5 rounded-full
+              text-sm font-medium text-gray-300
+              transition-all duration-300
+              hover:text-white
+              hover:bg-blue-600
+              hover:shadow-[0_0_20px_rgba(59,130,246,0.45)]">
+        Projects
+    </a>
 
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
-}
+    <a href="#contact"
+       class="px-5 py-2.5 rounded-full
+              text-sm font-medium text-gray-300
+              transition-all duration-300
+              hover:text-white
+              hover:bg-blue-600
+              hover:shadow-[0_0_20px_rgba(59,130,246,0.45)]">
+        Contact
+    </a>
+</div>
+            <!-- Mobile Toggle -->
+            <button class="md:hidden text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
 
-.zoom-effect:hover {
-  transform: scale(1.1);
-}
-
-
-</style>
-
-
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Sunil Prasad Yadav</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>My Resume</span></a></li>
-	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
-	          	 <div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'M <span>SUNIL PRASAD YADAV</span></h1>
-
-						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
-
-						<script>
-
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
-
-						// Create an array of typing text
-						const typingTexts = [
-						'SOFTWARE ENGINEER  ',
-						'INVESTOR',
-						'TRAVELLER   ',
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
-						</script>
-
-						<br>
-						<br>
-			            <h2> Sr Software Engineer</h2>
-						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 2 years of experience</h2> -->
-						<!-- <br> -->
-			            <p><a href="https://www.linkedin.com/in/sunil-yadav-80474/" class="btn btn-primary py-3 px-4">LinkedIn</a> 
-							<a href="https://github.com/Sunil-Yadav142" class="btn btn-white btn-outline-white py-3 px-4">GitHub</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-		</div>
+    <!-- Hero Section (Now with your background image) -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-10 px-6 relative bg-cover bg-center bg-no-repeat w-full" style="background-image: linear-gradient(rgba(11, 15, 25, 0.85), rgba(11, 15, 25, 0.95)), url('images/Background.jpg');">
+        <div class="max-w-4xl mx-auto text-center z-10">
+            <p class="text-brand-primary font-medium tracking-widest mb-4 reveal">WELCOME TO MY DIGITAL PROFILE</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight reveal" style="transition-delay: 100ms;">
+                Hello! I'm <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Sunil Prasad Yadav</span>
+            </h1>
+            <div class="text-2xl md:text-3xl font-light mb-10 text-gray-300 reveal" style="transition-delay: 200ms;">
+                I am a <span id="typed-text" class="font-semibold text-white"></span>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 reveal" style="transition-delay: 300ms;">
+                <a href="https://www.linkedin.com/in/sunil-yadav-80474/" target="_blank" class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 font-medium hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all transform hover:-translate-y-1">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Sunil-Yadav142" target="_blank" class="px-8 py-3 rounded-full glass border hover:bg-white/10 font-medium transition-all transform hover:-translate-y-1">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a href="https://drive.google.com/drive/folders/1twSZEiHmSNGdfJUHq23rTeZM73ffUem9?usp=sharing" target="_blank" class="px-8 py-3 rounded-full glass border hover:border-brand-primary font-medium transition-all transform hover:-translate-y-1">
+                    <i class="fas fa-download mr-2"></i> Resume
+                </a>
+            </div>
+        </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold mb-2">About <span class="text-gradient">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded"></div>
+            </div>
 
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Your Profile Photo -->
+                <div class="md:col-span-5 reveal relative">
+                    <div class="glass-card p-2 rounded-2xl relative overflow-hidden group">
+                        <img src="images/about-me.png" alt="Sunil Prasad Yadav" class="w-full h-auto rounded-xl object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <!-- Glow effect behind image -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 -z-10"></div>
+                    </div>
+                </div>
 
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">
-			<div class="row">
-				<div class="row d-flex align-items-stretch">
-				<!-- <div class="row d-flex"> -->
-					<div class="col-md-6 col-lg-5 d-flex">
-						<div class="img-about img d-flex align-items-stretch">
-							<div class="overlay">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-									  <div class="about-img">
-										<img src="images/about-me.jpg" class="img-fluid rounded b-shadow-a" alt="">
-									  </div>
-									</div>
-									<!-- Details next to profile image -->
-									<div class="col-sm-6 col-md-7">
-									  <div class="about-info">
-										<p><span class="title-s">Name: </span> <span>Sunil Prasad Yadav</span></p>
-										<p><span class="title-s">Job Role: </span> <span>Sr. Software Engineer</span></p>
-										<p><span class="title-s">Experience: </span> <span>5 Years 1 Months</span></p>
-										<p><span class="title-s">Address: </span> <span>Bengaluru, India</span></p>
-									  </div>
-									</div>
-								  </div>
+                <div class="md:col-span-7 space-y-8">
+                    <div class="reveal">
+                        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                            With over 5+ years of comprehensive experience in Software Development and Testing. Proficient in Manual Testing, Automation Testing, developing robust Test Suites, API Testing, and leading impactful quality assurance projects utilizing Agile methodologies.
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            I specialize in creating reliable automation frameworks that drive business strategies through data-driven insights and ensure flawless software delivery.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-8 rounded-2xl reveal" style="transition-delay: 200ms;">
+                        <h3 class="text-2xl font-semibold mb-6 border-b border-gray-700 pb-2">Quick Facts</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-center"><i class="fas fa-laptop-code w-8 text-brand-primary"></i> <strong>Role:</strong>&nbsp; Sr. Software Engineer</li>
+                            <li class="flex items-center"><i class="fas fa-map-marker-alt w-8 text-brand-secondary"></i> <strong>Location:</strong>&nbsp; Bengaluru, India</li>
+                            <li class="flex items-center"><i class="fas fa-language w-8 text-brand-primary"></i> <strong>Languages Spoken:</strong>&nbsp; English, Hindi, Nepali</li>
+                            <li class="flex items-center"><i class="fas fa-gamepad w-8 text-brand-primary"></i> <strong>Interests:</strong>&nbsp; MotorBiking, Travelling, Swimming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-								<div class="skill-mf">
-									<p class="title-s">Skills</p>
-									<span>Manual Testing</span> <span class="pull-right">100%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Automation Testing</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Selenium</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Automation Tools</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>C#</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-						<div class="row justify-content-start pb-3">
-							<div class="col-md-12 heading-section ftco-animate">
-								
-								<h1 class="big">About</h1>
-								<h2 class="mb-4">About Me</h2>
-								
-								<p>With over 5+ years of comprehensive experience in the field of Software Development and Software Testing, accompanied by a bachelor's degree in engineering. 
-									Proficient in Software Testing, Manual Testing, Automation Testing,Developing Test Suites, API Testing, customer behaviour analysis. 
-									Demonstrated success in leading impactful projects and providing effective mentorship.</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Sr. Software Engineer</span></li>
-									<li class="d-flex"><span>Education:</span> <span>Bachelor of Engineering</span></li>
-									<li class="d-flex"><span>Language:</span> <span>English, Hindi, Nepali</span></li>
-									<li class="d-flex"><span>Tools:</span> <span>Selenium, Postman, Jenkins, &amp; Appium</span></li>
-									<li class="d-flex"><span>Other Skills:</span> <span>ADO, Git, JIRA, Google Analytics &amp; SQL</span></li>
-									<li class="d-flex"><span>Interest:</span> <span>Traveling, Biking, Teaching</span></li>
-									<li class="d-flex"><span>Software Lifecycle Methodologies:</span> <span>Agile</span></li
-									
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<span class="number" data-number="10">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://www.linkedin.com/in/sunil-yadav-80474/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+            <!-- Skills Grid -->
+            <div class="mt-20 reveal">
+                <h3 class="text-2xl font-semibold mb-8 text-center">Tech Stack & Tools</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <!-- Core -->
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium hover:text-brand-primary cursor-default">Test Automation</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium hover:text-brand-secondary cursor-default">Manual Testing</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium hover:text-brand-primary cursor-default">API Testing</span>
+                    
+                    <!-- Tools -->
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-blue-500">C# and JAVA</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-blue-500">Selenium</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-blue-500">Playwright</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-purple-500">Azure DevOps</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-purple-500">Jenkins</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-purple-500">Postman</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-gray-500">Appium</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-gray-500">SQL</span>
+                    <span class="px-6 py-3 glass-card rounded-xl text-sm font-medium cursor-default border-t-2 border-t-gray-500">Git / JIRA</span>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6 relative z-10 bg-black/20 border-y border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold mb-2">Professional <span class="text-gradient">Journey</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded"></div>
+            </div>
 
+            <div class="relative border-l-2 border-gray-700 ml-3 md:ml-6 space-y-12">
+                
+                <!-- Beckman Coulter -->
+                <div class="relative pl-8 md:pl-12 reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl">
+                        <span class="text-brand-secondary text-sm font-bold tracking-wider uppercase mb-2 block">2026 - Present</span>
+                        <h3 class="text-2xl font-bold text-white mb-1">Sr. System V & V Engineer</h3>
+                        <h4 class="text-lg text-gray-400 mb-4">Beckman Coulter</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            Perform verification and validation (V&V) testing primarily automated, with manual testing as needed for the DXA 5000 sample routing system, a core diagnostics automation product. 
+                            Manage requirements traceability and test documentation in Polarion, ensuring full coverage between requirements, test cases, and defects for regulatory/quality compliance.
+                            Collaborate with cross-functional engineering teams validate sample-routing workflows 
+                        </p>
+                    </div>
+                </div>
 
-	
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">Resume</h2>
-            <p>Seasoned Software Engineer with 5+ years of experience driving business strategies through data-driven insights. Proven expertise in QA Engineer, Manual Testing, Automation Testing and project management.</p>
-          </div>
+                <!-- CitiusTech -->
+                <div class="relative pl-8 md:pl-12 reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl">
+                        <span class="text-brand-secondary text-sm font-bold tracking-wider uppercase mb-2 block">2024 - 2026</span>
+                        <h3 class="text-2xl font-bold text-white mb-1">Software Engineer</h3>
+                        <h4 class="text-lg text-gray-400 mb-4">CitiusTech Healthcare</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            Developed and executed detailed Automated test cases, and provided comprehensive test reports and defect documentation, ensuring clear communication and timely project delivery.
+                            Using Nunit framework and POM design pattern streamlining repetitive test processes to increase efficiency from 32% to 80% and reduce testing time.
+                            Designed, developed, and maintained automation scripts using tools like Selenium and C# (Csharp). 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mphasis -->
+                <div class="relative pl-8 md:pl-12 reveal">
+                    <div class="timeline-dot" style="background: #3B82F6; box-shadow: 0 0 10px #3B82F6;"></div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl">
+                        <span class="text-brand-primary text-sm font-bold tracking-wider uppercase mb-2 block">2021 - 2024</span>
+                        <h3 class="text-2xl font-bold text-white mb-1">Associate Software Engineer</h3>
+                        <h4 class="text-lg text-gray-400 mb-4">Mphasis</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            Involvement in Setting up Test Environments, Test Planning, Test Automation, Test Execution, Defect Reporting, Test Status Reporting, Test Closure Activities.
+                            Performed Functional Testing, Integration Testing, System Testing, Regression Testing,Sanity,Api Testing. 
+                            Actively involved in logging defects using Defect tracking tools. Knowledge transfer to new Joiners.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-		<div class="row">
-			<h1 class="big-4">Experience</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-		<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2021-2024</span>
-						<h2>Associate Software Engineer</h2>
-						<span class="position">Mphasis</span>
-						<p class="mt-4">Mphasis Limited is an Indian multinational information technology services and consulting company based in Bangalore. The company provides infrastructure technology and applications outsourcing services, as well as architecture guidance, application development and integration, and application management services 
-							<ul>
-								<li>Involvement in Setting up Test Environments, Test Planning, Test Automation, Test Execution, Defect Reporting, Test Status Reporting, Test Closure Activities.</li>
-								<li>Performed Functional Testing, Integration Testing, System Testing, Regression Testing,Sanity,Api Testing. </li>
-								<li>Actively involved in logging defects using Defect tracking tools. Knowledge transfer to new Joiners.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2024-2026</span>
-						<h2> Software Engineer</h2>
-						<span class="position">CitiusTech Healthcare</span>
-						<p class="mt-4">CitiusTech is a global health information technology company based in Mumbai, India. The company provides services such as data management, consulting, digital engineering, and artificial intelligence to health and healthcare companies. 
-							<ul>
-								<li>Developed and executed detailed Automated test cases, and provided comprehensive test reports and defect documentation, ensuring clear communication and timely project delivery. </li>
-								<li>Using Nunit framework and POM design pattern streamlining repetitive test processes to increase efficiency from 32% to 80% and reduce testing time. </li>
-								<li>Designed, developed, and maintained automation scripts using tools like Selenium and C# (Csharp). </li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2026-Present</span>
-						<h2> Sr. System V & V Engineer</h2>
-						<span class="position">Beckman Coulter</span>
-						<p class="mt-4">Beckman Coulter is a global medical technology company that provides diagnostic solutions such as laboratory testing, automation, clinical chemistry, hematology, and immunoassay to healthcare organizations for better PAtient Care.
-							<ul>
-								<li>Perform verification and validation (V&V) testing primarily automated, with manual testing as needed for the DXA 5000 sample routing system, a core diagnostics automation product. </li>
-								<li> Manage requirements traceability and test documentation in Polarion, ensuring full coverage between requirements, test cases, and defects for regulatory/quality compliance. </li>
-								<li> Collaborate with cross-functional engineering teams validate sample-routing workflows </li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-			</div>			
-		</div>
-
-		<br>
-		<br>
-
-		<div class="row">
-			<h1 class="big-4">Education</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-			<div class="row">
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2016-2020</span>
-    					<h2>Bachelor of Engineering</h2>
-    					<span class="position">Visvesvaraya Technological University</span>
-    					<p class="mt-4">Major: Computer Science and Engineering.</p>
-    				</div>
-    			</div>
-
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2014-2016</span>
-    					<h2>Higher Secondary School</h2>
-    					<span class="position">National Infotech</span>
-    					<p class="mt-4">Major: Computer Science.</p>
-    				</div>
-				</div>
-    		</div>
-
-    		<div class="row justify-content-center mt-5">
-    			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="https://drive.google.com/drive/folders/1twSZEiHmSNGdfJUHq23rTeZM73ffUem9?usp=sharing" class="btn btn-primary py-4 px-5">Download CV</a></p>
-    			</div>
-    		</div>
-    	</div>
     </section>
 
-	<section class="ftco-section" id="project-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Projects</h2>
-            <p>Below are the sample Project which i have completed and Future upcomming Projects</p>
-          </div>
+    <!-- Projects Section (Now with your project images) -->
+    <section id="projects" class="py-24 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold mb-2">Featured <span class="text-gradient">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal flex flex-col h-full">
+                    <div class="h-48 relative overflow-hidden border-b border-white/10">
+                        <img src="images/proj_1.jpg" alt="Portfolio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-primary transition-colors">
+                            <a href="https://github.com/Sunil-Yadav142/Sunil-Yadav142.github.io" target="_blank">My Portfolio</a>
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">This is my high-level portfolio where people can check out my job history and find my social media handles.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded">HTML/CSS</span>
+                            <span class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal flex flex-col h-full" style="transition-delay: 100ms;">
+                    <div class="h-48 relative overflow-hidden border-b border-white/10">
+                        <img src="images/proj_2.jpg" alt="CURA Healthcare" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-primary transition-colors">
+                            <a href="https://github.com/Sunil-Yadav142/CURA-Healthcare-Service" target="_blank">Automated CURA Healthcare</a>
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Written in Java with Selenium. Automates the CURA Healthcare Service website to seamlessly book health checkup appointments and verify logout flows.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded">Java</span>
+                            <span class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded">Selenium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal flex flex-col h-full" style="transition-delay: 200ms;">
+                    <div class="h-48 relative overflow-hidden border-b border-white/10">
+                        <img src="images/proj_3.jpg" alt="Calculator App" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-primary transition-colors">
+                            <a href="https://github.com/Sunil-Yadav142/CalculatorAutomated" target="_blank">Automated Desktop Calculator</a>
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Demonstrates automated testing of a calculator application using Java, Selenium WebDriver, and Appium, covering basic and mixed arithmetic scenarios.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded">Appium</span>
+                            <span class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded">JAVA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal flex flex-col h-full">
+                    <div class="h-48 relative overflow-hidden border-b border-white/10">
+                        <img src="images/proj_4.jpg" alt="Email Extractor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-primary transition-colors">
+                            <a href="https://github.com/Sunil-Yadav142/Email-Extractor" target="_blank">PDF Email Extractor</a>
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">A utility project designed to scan PDF files passed as input, extract all valid email addresses, and output them securely into a structured .CSV file format.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <span class="text-xs px-2 py-1 bg-gray-500/20 text-gray-400 rounded">Data Extraction with C#</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal flex flex-col h-full" style="transition-delay: 100ms;">
+                    <div class="h-48 relative overflow-hidden border-b border-white/10">
+                        <img src="images/proj_5.jpg" alt="Contact Info Manager" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-primary transition-colors">
+                            <a href="https://github.com/Sunil-Yadav142/" target="_blank">Contact Info Manager</a>
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">A management script written in C# and Selenium that programmatically performs operations like saving, deleting, and editing contact information.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded">C#</span>
+                            <span class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded">Selenium</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/Sunil-Yadav142/Sunil-Yadav142.github.io">My Portfolio</a></h3>
-                <p>This is sample Portfolio project in which peoples can check out my high level portfolio and my job history and also can find my social media handles</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/Sunil-Yadav142/CURA-Healthcare-Service">Automated CURA Heaalthcare Website</a></h3>
-                <p>This Project is written on Selenium with Java which, Automates Cura Healthcare Service website to make an appointment for Health checkup and logout after successfully appointment is made.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/Sunil-Yadav142/CalculatorAutomated">Automated Desktop Calculator</a></h3>
-                <p>This project demonstrates automated testing of a calculator application using Java, Selenium WebDriver, and Appium. The tests cover basic arithmetic operations such as addition, subtraction, and division, along with a mixed operation scenario and Gives Result.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	<br> 
-		<!-- added justify-content-center to center align the last two projects -->
-		 <div class="row d-flex justify-content-center">  
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/Sunil-Yadav142/" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/Sunil-Yadav142/Email-Extractor">Email Extractor From PDF File</a></h3>
-				  <p>This projects helps us to extract all email id's from pdf file and store all email id's in an Excel sheet (PDF file is Passed as input file and we get output as .CSV File)</p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="" class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/Sunil-Yadav142/"> Contact Information </a></h3>
-				  <p>This Project is written in C# language with Selenium which performs operations like Saving contact, Deleting Contact, Edidting Contact information etc.</p>
-				</div>
-			  </div>
-			</div>
-		 </div>
-	  </div>
     </section>
 
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-      <div class="container">
-		<div class="row d-md-flex align-items-center">
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="5">0</strong>
-                <span>Achievements</span>
-              </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 relative z-10 bg-black/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold mb-2">Get In <span class="text-gradient">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded"></div>
+                <p class="text-gray-400 mt-4">Have a question or want to work together? Let's connect.</p>
             </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="5">0</strong>
-                <span>Projects</span>
-              </div>
+
+            <div class="grid md:grid-cols-5 gap-12">
+                <!-- Contact Info -->
+                <div class="md:col-span-2 space-y-6 reveal">
+                    <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-1">Location</h4>
+                            <p class="text-gray-400">Bengaluru, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 flex-shrink-0">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-1">Email</h4>
+                            <a href="mailto:sunilyadav142142@gmail.com" class="text-gray-400 hover:text-white transition-colors">sunilyadav142142@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
+                            <i class="fas fa-phone-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-1">Phone</h4>
+                            <a href="tel:+919901080474" class="text-gray-400 hover:text-white transition-colors">+91 99010 80474</a>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Contact Form -->
+<div class="md:col-span-3 glass-card p-8 rounded-2xl reveal" style="transition-delay: 200ms;">
+    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+        
+        <!-- Replace YOUR_ACCESS_KEY_HERE with your actual key from web3forms.com -->
+        <input type="hidden" name="access_key" value="c8c52ea1-01b1-4885-b85a-f586bc6caffc">
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition-colors" placeholder="John Doe">
             </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="10">0</strong>
-                <span>Mentored Students</span>
-              </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-2">Your Email</label>
+                <input type="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition-colors" placeholder="john@example.com">
             </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="1000">0</strong>
-                <span>Cups of coffee</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div> 
-	
-	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-			<!-- <div class="container"> -->
-				<div class="row justify-content-center">
-					<div class="col-md-7 ftco-animate text-center">
-						<h2>Projects On<span> Github  </span> </h2>
-						<div class="heading"> <h4> I love to solve business problems &amp; uncover hidden data stories </h4>
-						<br>
-						<!-- <p><a href="https://github.com/Sunil-Yadav142" class="btn btn-primary py-3 px-5"> GitHub </a></p> -->
-						</div>
-					</div>
-				</div>
-			<!-- </div> -->
-		</div>
-	</section> 
-
-
-
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4"><span>Contact Me</span></h2>
-            <p>Below are the details to reach out to me!</p>
-          </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
+            <input type="text" name="subject" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition-colors" placeholder="Project Inquiry">
         </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+            <textarea name="message" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition-colors resize-none" placeholder="Hello, I'd like to talk about..."></textarea>
+        </div>
+        
+        <button type="submit" class="w-full py-4 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 font-bold text-white text-center hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all">
+            Send Message
+        </button>
+    </form>
+</div>
+            </div>
+        </div>
+    </section>
 
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-4">Address</h3>
-	            <p>Bengaluru, India</p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-4">Contact Number</h3>
-	            <p><a href="tel://+91-9901080474">+91-9901080474</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="sunilyadav142142@gmail.com">sunilyadav142142@gmail.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-4">Download Resume</h3>
-				  <p><a href="https://drive.google.com/drive/folders/1twSZEiHmSNGdfJUHq23rTeZM73ffUem9?usp=sharing">ResumeLink</a></p>
-	          </div>
-          </div>
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-500 border-t border-white/5 relative z-10">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="https://github.com/Sunil-Yadav142" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-white/10 transition-all"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sunil-yadav-80474/" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-blue-500/20 transition-all"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/sunil142142" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-blue-400/20 transition-all"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/_sunil_yadav_/" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-purple-500/20 transition-all"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2026 Sunil Prasad Yadav. All rights reserved.</p>
+    </footer>
 
-		  <div class="container">
-			<br>
-			<br>
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>Have a<span> Question?  </span> <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CkjL75Cc8LPaC0iXq_Jd4gKY0A0huYWJUqVESbx9grSonw/viewform?usp=sf_link" class="btn btn-primary py-3 px-5">Click Here</a> </h2>
-				</div>
-			</div>
-				<br>
-					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-					  <li class="ftco-animate normal-txt">Find me on  </li>
-					  <li class="ftco-animate"><a href="https://github.com/Sunil-Yadav142/"><span class="icon-git"></span></a></li>
-					  <!-- li class="ftco-animate"><a href="https://www.youtube.com/@"><span class="icon-youtube"></span></a></li> -->
-					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/sunil-yadav-80474/"><span class="icon-linkedin"></span></a></li>  
-					  <li class="ftco-animate"><a href="https://twitter.com/sunil142142"><span class="icon-twitter"></span></a></li>
-					  <!-- li class="ftco-animate"><a href="https://twitter.com/r"><span class="icon-facebook"></span></a></li> -->
-				      <li class="ftco-animate"><a href="https://www.instagram.com/_sunil_yadav_/"><span class="icon-instagram"></span></a></li>
-					</ul>
-				<br>
-		   </div>
-   </div>
- </section>
+    <!-- Scripts -->
+    <script>
+        // Typing Animation
+        var typed = new Typed('#typed-text', {
+            strings: ['Sr. Software Engineer', 'Test Automation Expert', 'Investor', 'Traveller'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
 
+        // Scroll Reveal Animation Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
 
- 
-	
-    <footer class="ftco-footer ftco-section">
-		<div class="container">
-		  <div class="row">
-			<div class="col-md-12 text-center">
-  
-	
+        revealElements.forEach(el => revealObserver.observe(el));
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  
-  <script src="js/main.js"></script>
-    
-  </body>
+        // Navbar blur on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'bg-brand-dark/80');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-brand-dark/80');
+            }
+        });
+    </script>
+</body>
 </html>
